@@ -619,38 +619,16 @@ function test(){
 }
 
 function displayUsers(users,element){
-	for(let i = 0; i < 3; i++){
+	console.log(users.length);
+	for(let i = 0; i < 1; i++){
 		let html = `
-			<div class="col-lg-3 border m-2 text-center">
-				<div class="row">
-					<div class="col-lg-3">
-						<img class="img-fluid" src="`+ users[i].avatar_url +`" />
-					</div>
-					<div class="col-lg-6">
-						<h5>`+ users[i].login +`</h5>
-
-					</div>
+			<div class="col-lg-12 m-2">
+				<div style="width: 200px; margin: 0 auto 0 auto;">
+					<img class="img-fluid rounded mx-auto d-block" src="`+ users[i].avatar_url +`" />
 				</div>
+				<h5  class="text-center">`+ users[i].login +`</h5>
 			</div>`;
 		element.innerHTML = html;
 		users.shift();
-		console.log('jj');
 	};
 }
-
-/*function displayUsers(users,element){
-	users.forEach(function(item, index){
-		let html = `<div class="col-lg-3 border m-2 text-center">
-						<div class="row">
-							<div class="col-lg-3">
-								<img class="img-fluid" src="`+ item.avatar_url +`" />
-							</div>
-							<div>
-								<h5>`+ item.login +`</h5>
-
-							</div>
-						</div>
-					</div>`;
-		element.innerHTML += html;
-	});
-}*/
