@@ -619,7 +619,6 @@ function test(){
 }
 
 function displayUsers(users,element){
-	console.log(users.length);
 	for(let i = 0; i < 1; i++){
 		let html = `
 			<div class="col-lg-12 m-2">
