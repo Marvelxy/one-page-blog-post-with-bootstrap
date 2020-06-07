@@ -605,7 +605,11 @@
 	];
 
 	let githubUsers = document.querySelector('#githubUsers')
-	displayUsers(users, githubUsers);
+	// displayUsers(users, githubUsers);
+
+	setInterval(function(){
+		displayUsers(users, githubUsers);
+	}, 3000);
 
 })();
 
@@ -628,7 +632,9 @@ function displayUsers(users,element){
 					</div>
 				</div>
 			</div>`;
-		element.innerHTML += html;
+		element.innerHTML = html;
+		users.shift();
+		console.log('jj');
 	};
 }
 
