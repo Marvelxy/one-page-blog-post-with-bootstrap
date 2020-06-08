@@ -604,8 +604,12 @@
 	  }
 	];
 
-	let githubUsers = document.querySelector('#githubUsers')
-	displayUsers(users, githubUsers);
+	// let githubUsers = document.querySelector('#githubUsers');
+	let initial = document.querySelector('.initial');
+	let userNameElement = document.querySelector('.githubUsername');
+	displayInitialProfile(users, initial, userNameElement);
+
+
 })();
 
 
@@ -613,20 +617,38 @@ function test(){
 	console.log('Loaded!');
 }
 
+
+function displayInitialProfile(users, userPhotoElement, userNameElement,){
+	userPhotoElement.setAttribute("src", users[0].avatar_url);
+	userNameElement.innerText = users[0].login;
+}
+
+
+/*
 function displayUsers(users,element){
+	let usersList = users;
+	let usersToDisplay = JSON.parse(JSON.stringify(users));
+	console.log(usersToDisplay);
 	for(let i = 0; i < 1; i++){
-		let html = `
-			<div class="col-lg-12 m-2">
-				<div style="width: 200px; margin: 0 auto 0 auto;">
-					<img class="img-fluid rounded mx-auto d-block" src="`+ users[i].avatar_url +`" />
-				</div>
-				<h5  class="text-center">`+ users[i].login +`</h5>
-			</div>`;
-		element.innerHTML = html;
-		users.shift();
+		if(usersToDisplay.length < 15){
+			console.log(users.length);
+			usersToDisplay = users;
+			//displayUsers(usersToDisplay, element);
+		}
+		else{
+			let html = `
+				<div class="col-lg-12 m-2">
+					<div style="width: 200px; margin: 0 auto 0 auto;">
+						<img class="img-fluid rounded mx-auto d-block" src="`+ usersToDisplay[i].avatar_url +`" />
+					</div>
+					<h5  class="text-center">`+ usersToDisplay[i].login +`</h5>
+				</div>`;
+			element.innerHTML = html;
+			usersToDisplay.shift();
+		}
 	};
 
 	setInterval(function(){
 		displayUsers(users, element);
 	}, 3000);
-}
+}*/
