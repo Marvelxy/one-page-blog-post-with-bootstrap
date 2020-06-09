@@ -613,10 +613,10 @@
 
 
 	var itemClassName = "carousel__photo",
-    items = document.getElementsByClassName(itemClassName),
-    totalItems = items.length,
-    slide = 0,
-    moving = true;
+    	items = document.getElementsByClassName(itemClassName),
+    	totalItems = items.length,
+    	slide = 0,
+    	moving = true;
 
 
     // Set classes
@@ -649,6 +649,12 @@
 	    moveCarouselTo(slide);
 	  }
 	}
+
+	// Auto scroll the carousel
+	setInterval(function(){
+	    moveNext();
+	  }, 5000);
+
 	// Previous navigation handler
 	function movePrev() {
 	  // Check if moving
@@ -741,9 +747,6 @@ function displayInitialProfile(users, userPhotoElement, userNameElement){
 }
 
 function displayOtherProfile(users){
-	
-	//let otherUsers = document.querySelector('.users').appendChild(node); 
-
 	for(let i = 1; i < users.length; i++){
 		let node = `
 			<div class="carousel__photo">
@@ -752,7 +755,6 @@ function displayOtherProfile(users){
 	  		</div>`;
 		let wrapper = document.querySelector('.users');
 
-		//var wrapper = document.getElementById('one');
 		wrapper.insertAdjacentHTML('beforeend', node);
 	};
 }
