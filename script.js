@@ -608,7 +608,6 @@
 	let initial = document.querySelector('.initial');
 	let userNameElement = document.querySelector('.githubUsername');
 	displayInitialProfile(users, initial, userNameElement);
-
 	displayOtherProfile(users);
 
 
@@ -653,7 +652,13 @@
 	// Auto scroll the carousel
 	setInterval(function(){
 	    moveNext();
-	  }, 5000);
+	  }, 3000);
+
+	/*let carouselWrapper = document.querySelector('.carousel-wrapper');
+	carouselWrapper.addEventListener('mouseover', ()=>{
+		console.log('kkjk');
+		disableInteraction();
+	});*/
 
 	// Previous navigation handler
 	function movePrev() {
